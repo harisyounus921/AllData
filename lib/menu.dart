@@ -85,16 +85,18 @@ class _menusState extends State<menus> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     ElevatedButton(
+
                         onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => list[index]));
                         },
-                        child: Text("OPEN IT"))
+                        child: Text("OPEN IT")),
                   ],
                 ),
               );
+              Divider(color: Colors.black,);
             }));
   }
 }

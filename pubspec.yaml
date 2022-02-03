@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   font_awesome_flutter: ^9.1.0
   http: ^0.13.3
+  math_expressions: ^2.3.0
   rflutter_alert: ^1.0.2
 
 dev_dependencies:

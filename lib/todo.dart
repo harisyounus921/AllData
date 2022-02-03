@@ -7,7 +7,7 @@ class todo extends StatefulWidget {
 
 class _todoState extends State<todo> {
   var output = "";
-  List first = [1, 2, 3, 4];
+  List first = ["First data", "2nd data", "Third data", "Next data"];
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +17,15 @@ class _todoState extends State<todo> {
           itemBuilder: (context, index) {
             return Container(
               height: 50,
-              color: Colors.amber,
+              color: Colors.lightBlueAccent,
               margin: EdgeInsets.only(top: 12),
               child: ListTile(
                 tileColor: Colors.blueGrey,
-                title: Text("${first[index]}"),
+                title: Text("${first[index]}",style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white
+                ),),
                 trailing: Container(
                   width: 50,
                   child: Row(
@@ -52,14 +56,14 @@ class _todoState extends State<todo> {
                                   );
                                 });
                           },
-                          child: Icon(Icons.edit)),
+                          child: Icon(Icons.edit,color: Colors.white,)),
                       GestureDetector(
                           onTap: () {
                             setState(() {
                               first.removeAt(index);
                             });
                           },
-                          child: Icon(Icons.delete)),
+                          child: Icon(Icons.delete,color: Colors.white,)),
                     ],
                   ),
                 ),
@@ -67,6 +71,7 @@ class _todoState extends State<todo> {
             );
           }),
       floatingActionButton: FloatingActionButton(
+
         onPressed: () {
           showDialog(
               context: context,
@@ -93,6 +98,7 @@ class _todoState extends State<todo> {
         },
         child: Text("ADD"),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
