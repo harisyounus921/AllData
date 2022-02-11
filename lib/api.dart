@@ -34,8 +34,10 @@ class _apiState extends State<api> {
           future: getuser(),
           builder: (context, snapshot) {
             if (snapshot.data == null) {
-              return Container(
-                child: Text("nothing in api"),
+              return Center(
+                child: Container(
+                  child: Text("nothing in api"),
+                ),
               );
             } else
               return ListView.builder(

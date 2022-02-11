@@ -50,19 +50,19 @@ class _calculatorState extends State<calculator> {
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(result, style: TextStyle(
-                         color: Colors.blue, fontSize: 30, fontWeight: FontWeight.bold),),
+                      color: Colors.blue, fontSize: 30, fontWeight: FontWeight.bold),),
                   clearr("CLEAR"),
                 ],
               ),
-               SizedBox(height: 28.0,),
+              SizedBox(height: 28.0,),
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                                button("1"), button("2"), button("3"), button("+"),]),
+                button("1"), button("2"), button("3"), button("+"),]),
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                                   button("4"), button("5"), button("6"), button("-"),]),
-                Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-                                  button("7"), button("8"), button("9"), button("*"),]),
+                button("4"), button("5"), button("6"), button("-"),]),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                button("7"), button("8"), button("9"), button("*"),]),
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
                 button("."), button("0"), equall("="), button("/"),])
-    ]));
+            ]));
   }
 }

@@ -42,11 +42,11 @@ class calculatorBrain {
 
   String getInterpretation() {
     if (_bmi >= 25) {
-      return "Consume less “bad” fat and more “good” fat.Consume less processed and sugary foods.Eat more servings of vegetables and fruits. ...Eat plenty of dietary fiber.Focus on eating low–glycemic index foods.";
+      return "Consume less “bad” fat and more “good” fat.Consume less processed and sugary foods.Eat more servings of vegetables and fruits.Focus on eating low glycemic index foods.";
     } else if (_bmi > 18.5) {
-      return "Don't drink water before meals. This can fill your stomach and make it harder to get in enough calories.Eat more often. ...Drink milk. ...Try weight gainer shakes. ...Use bigger plates. ...Add cream to your coffee. ...Take creatine. ...Get quality sleep";
+      return "Don't drink water before meals. This can fill your stomach and make it harder to get in enough calories.Drink milk.Try weight gainer shakes.Use bigger plates.Add cream to your coffee.Get quality sleep";
     } else {
-      return "Eat more frequently. When you're underweight, you may feel full faster. ...Choose nutrient-rich foods. ...Try smoothies and shakes. ...Watch when you drink. ...Make every bite count. ...Top it off. ...Have an occasional treat.";
+      return "Eat more frequently. When you're underweight, you may feel full faster.Choose nutrient-rich foods.Try smoothies and shakes.Have an occasional treat.";
     }
   }
 }

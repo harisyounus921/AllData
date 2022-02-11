@@ -23,11 +23,11 @@ class _menusState extends State<menus> {
   var word = [
     "BMI CALCULATOR",
     "MiCard",
-    "Quizzler",
-    "WhatsApp",
     "Ecom App UI",
     "Todo App",
     "Calculator",
+    "Quizzler",
+    "WhatsApp",
     "API Use",
     "Data Entry App",
     "Increment Decrement",
@@ -39,11 +39,11 @@ class _menusState extends State<menus> {
   var pic = [
     "assets/bmi.png",
     "assets/MiCard.png",
-    "assets/quizzer.png",
-    "assets/whatsapp.png",
     "assets/ecomapp.png",
     "assets/todo.png",
     "assets/calculator.png",
+    "assets/quizzer.png",
+    "assets/whatsapp.png",
     "assets/api.png",
     "assets/form.png",
     "assets/increment.png",
@@ -55,11 +55,11 @@ class _menusState extends State<menus> {
   List list = [
     BMICalculator(),
     MiCard(),
-    Quizzler(),
-    flud(),
     haris(),
     todo(),
     calculator(),
+    Quizzler(),
+    flud(),
     api(),
     Formapp(),
     xtra(),
@@ -85,18 +85,11 @@ class _menusState extends State<menus> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     ElevatedButton(
-
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => list[index]));
-                        },
-                        child: Text("OPEN IT")),
+                        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => list[index]));},
+                        child: Text("OPEN IT"))
                   ],
                 ),
               );
-              Divider(color: Colors.black,);
             }));
   }
 }

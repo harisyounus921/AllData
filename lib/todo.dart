@@ -22,9 +22,9 @@ class _todoState extends State<todo> {
               child: ListTile(
                 tileColor: Colors.blueGrey,
                 title: Text("${first[index]}",style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
                 ),),
                 trailing: Container(
                   width: 50,
