@@ -44,6 +44,9 @@ class _calculatorState extends State<calculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: const Text('Smart Calculator'),
+        ),
         body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

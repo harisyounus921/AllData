@@ -13,6 +13,25 @@ import 'package:menu/xtra.dart';
 import 'package:menu/bottom.dart';
 import 'package:flutter/material.dart';
 import 'package:menu/api.dart';
+import 'package:splashscreen/splashscreen.dart';
+
+class Splash extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new SplashScreen(
+        seconds: 7,
+        navigateAfterSeconds: new menus(),
+        //title: new Text('Welcome To ALL IN 1',style: TextStyle(fontStyle: FontStyle.italic,color: Colors.white, ),),
+        //image: new Image.asset("assets/splash.jpg"),
+        imageBackground: AssetImage("assets/splash.jpg"),
+        //backgroundColor: Colors.black,
+        //styleTextUnderTheLoader: new TextStyle(),
+        //photoSize: 200.0,
+        loaderColor: Colors.black
+    );
+  }
+}
+
 
 class menus extends StatefulWidget {
   @override
