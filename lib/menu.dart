@@ -19,7 +19,7 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new SplashScreen(
-        seconds: 7,
+        seconds: 4,
         navigateAfterSeconds: new menus(),
         //title: new Text('Welcome To ALL IN 1',style: TextStyle(fontStyle: FontStyle.italic,color: Colors.white, ),),
         //image: new Image.asset("assets/splash.jpg"),
@@ -45,6 +45,7 @@ class _menusState extends State<menus> {
     "Ecom App UI",
     "Todo App",
     "Calculator",
+    "Scroll View",
     "Quizzler",
     "WhatsApp",
     "API Use",
@@ -52,7 +53,6 @@ class _menusState extends State<menus> {
     "Increment Decrement",
     "Bottom Nav Bar",
     "Drawer View",
-    "Scroll View",
     "Stack Use(BOX)",
   ];
   var pic = [
@@ -61,6 +61,7 @@ class _menusState extends State<menus> {
     "assets/ecomapp.png",
     "assets/todo.png",
     "assets/calculator.png",
+    "assets/scroll.png",
     "assets/quizzer.png",
     "assets/whatsapp.png",
     "assets/api.png",
@@ -68,7 +69,6 @@ class _menusState extends State<menus> {
     "assets/increment.png",
     "assets/navbar.png",
     "assets/drawer.png",
-    "assets/scroll.png",
     "assets/box.png",
   ];
   List list = [
@@ -77,6 +77,7 @@ class _menusState extends State<menus> {
     haris(),
     todo(),
     calculator(),
+    scroll(),
     Quizzler(),
     flud(),
     api(),
@@ -84,7 +85,6 @@ class _menusState extends State<menus> {
     xtra(),
     BottomNavigation(),
     drawers(),
-    scroll(),
     Stackuse(),
   ];
   @override

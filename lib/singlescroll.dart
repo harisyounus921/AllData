@@ -10,12 +10,22 @@ class _scrollState extends State<scroll> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Single child Scroll view'),),
       body: SingleChildScrollView(
         child: Column(children: [
           Container(
+            child: Center(child: Text("Simple Container",style: TextStyle(color:Colors.white
+            ),)),
             height: 200,
             width: 200,
-            color: Colors.red,
+            color: Colors.cyan,
+          ),
+          SizedBox(height: 10),
+          Container(
+            child: Center(child: Text("Simple Container",style: TextStyle(color: Colors.white)),),
+            height: 200,
+            width: 200,
+            color: Colors.lightBlueAccent,
           ),
           SizedBox(height: 10),
           GridView.count(
@@ -26,8 +36,8 @@ class _scrollState extends State<scroll> {
             mainAxisSpacing: 20,
             children: List.generate(first.length, (index) {
               return Container(
-                color: Colors.yellow,
-                child: Center(child: Text("${first[index]}")),
+                color: Colors.deepPurpleAccent,
+                child: Center(child: Text("GridView NeverScrollable Scrollphysics ShrinkWrap  ${first[index]}",style:TextStyle(color: Colors.white),)),
               );
             }),
           )

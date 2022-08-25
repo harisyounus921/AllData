@@ -12,9 +12,15 @@ class _harisState extends State<haris> {
     "Mackbook Air",
     "mackbook Pro",
     "gaming PC",
-    "Iphone 11"
+    "Iphone 11",
+    "Iphone 12",
+    "Note 20 Ultra",
+    "Mackbook Air",
   ];
   var pic = [
+    "assets/q1.jpg",
+    "assets/q2.jpg",
+    "assets/q3.jpg",
     "assets/q1.jpg",
     "assets/q2.jpg",
     "assets/q3.jpg",
@@ -27,7 +33,7 @@ class _harisState extends State<haris> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Ecom App UI",
+          "Eapp using listview.builder",
           style: TextStyle(color: Colors.blue),
         ),
         backgroundColor: Colors.white,
@@ -46,7 +52,7 @@ class _harisState extends State<haris> {
                   child: Row(
                     children: [
                       CircleAvatar(
-                          radius: 50, backgroundImage: AssetImage(pic[index])),
+                          radius: 65, backgroundImage: AssetImage(pic[index])),
                       Padding(
                         padding: const EdgeInsets.only(left: 18.0),
                         child: Column(
@@ -103,12 +109,6 @@ class _harisState extends State<haris> {
                                         fontSize: 16),
                                   ),
                                 ],
-                              ),
-                              Text(
-                                "quantity :1 ",
-                                style: TextStyle(
-                                  color: Colors.black26,
-                                ),
                               ),
                             ]),
                       )
