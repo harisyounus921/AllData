@@ -1,4 +1,5 @@
 import 'package:menu/MiCard.dart';
+import 'package:menu/Provider/ThemeProvider.dart';
 import 'package:menu/Quizzler.dart';
 import 'package:menu/bmi.dart';
 import 'package:menu/calculator.dart';
@@ -13,13 +14,14 @@ import 'package:menu/xtra.dart';
 import 'package:menu/bottom.dart';
 import 'package:flutter/material.dart';
 import 'package:menu/api.dart';
+import 'package:provider/provider.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new SplashScreen(
-        seconds: 4,
+        seconds: 3,
         navigateAfterSeconds: new menus(),
         //title: new Text('Welcome To ALL IN 1',style: TextStyle(fontStyle: FontStyle.italic,color: Colors.white, ),),
         //image: new Image.asset("assets/splash.jpg"),
@@ -27,7 +29,7 @@ class Splash extends StatelessWidget {
         //backgroundColor: Colors.black,
         //styleTextUnderTheLoader: new TextStyle(),
         //photoSize: 200.0,
-        loaderColor: Colors.black
+         loaderColor: Colors.white70,
     );
   }
 }
@@ -89,7 +91,32 @@ class _menusState extends State<menus> {
   ];
   @override
   Widget build(BuildContext context) {
+    final themechange=Provider.of<ThemeChangerProvider>(context);
     return Scaffold(
+      appBar: AppBar(
+        title: Text("All in One"),
+        centerTitle: true,
+        actions: [
+          PopupMenuButton(itemBuilder: (context)=>[
+            PopupMenuItem(
+              child: Text("Light Theme"),
+              onTap: (){
+                themechange.setTheme(ThemeMode.light);
+              },
+            ),
+            PopupMenuItem(child: Text("Dark Theme"),
+              onTap: (){
+                themechange.setTheme(ThemeMode.dark);
+              },
+            ),
+            PopupMenuItem(child: Text("System Theme"),
+              onTap: (){
+                themechange.setTheme(ThemeMode.system);
+              },
+            ),
+          ]),
+        ],
+      ),
         body: ListView.builder(
             itemCount: word.length,
             itemBuilder: (context, index) {
