@@ -1,6 +1,10 @@
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:menu/Login/GoogleSignInApi.dart';
+import 'package:menu/Login/LoginScreen.dart';
 import 'package:menu/MiCard.dart';
 import 'package:menu/Provider/ThemeProvider.dart';
 import 'package:menu/Quizzler.dart';
+import 'package:menu/Setting/Setting.dart';
 import 'package:menu/bmi.dart';
 import 'package:menu/calculator.dart';
 import 'package:menu/drawers.dart';
@@ -15,27 +19,10 @@ import 'package:menu/bottom.dart';
 import 'package:flutter/material.dart';
 import 'package:menu/api.dart';
 import 'package:provider/provider.dart';
-import 'package:splashscreen/splashscreen.dart';
-
-class Splash extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new SplashScreen(
-        seconds: 3,
-        navigateAfterSeconds: new menus(),
-        //title: new Text('Welcome To ALL IN 1',style: TextStyle(fontStyle: FontStyle.italic,color: Colors.white, ),),
-        //image: new Image.asset("assets/splash.jpg"),
-        imageBackground: AssetImage("assets/splash.jpg"),
-        //backgroundColor: Colors.black,
-        //styleTextUnderTheLoader: new TextStyle(),
-        //photoSize: 200.0,
-         loaderColor: Colors.white70,
-    );
-  }
-}
-
 
 class menus extends StatefulWidget {
+  final GoogleSignInAccount user;
+  menus({this.user});
   @override
   _menusState createState() => _menusState();
 }
@@ -94,9 +81,23 @@ class _menusState extends State<menus> {
     final themechange=Provider.of<ThemeChangerProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("All in One"),
-        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            CircleAvatar(
+              backgroundImage:  AssetImage('assets/splash.jpg',),
+              radius: 23,
+            ),
+            Container(
+                padding: const EdgeInsets.all(8.0), child: Text('All in One'))
+          ],
+        ),
+        automaticallyImplyLeading: false,
+       // centerTitle: true,
         actions: [
+          IconButton(icon: Icon(Icons.account_circle),
+              color: Colors.white,iconSize: 30, onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SettingScreen(user:widget.user)));}),
           PopupMenuButton(itemBuilder: (context)=>[
             PopupMenuItem(
               child: Text("Light Theme"),
@@ -114,7 +115,8 @@ class _menusState extends State<menus> {
                 themechange.setTheme(ThemeMode.system);
               },
             ),
-          ]),
+          ],
+    ),
         ],
       ),
         body: ListView.builder(
