@@ -85,9 +85,12 @@ class _menusState extends State<menus> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            CircleAvatar(
-              backgroundImage:  AssetImage('assets/splash.jpg',),
-              radius: 23,
+            Hero(
+              tag: "loginToMenu",
+              child: CircleAvatar(
+                backgroundImage:  AssetImage('assets/splash.jpg',),
+                radius: 23,
+              ),
             ),
             Container(
                 padding: const EdgeInsets.all(8.0), child: Text('All in One'))
@@ -109,19 +112,6 @@ class _menusState extends State<menus> {
             PopupMenuItem(child: Text("Dark Theme"),
               onTap: (){
                 themechange.setTheme(ThemeMode.dark);
-              },
-            ),
-            PopupMenuItem(child: Text("System Theme"),
-              onTap: (){
-                themechange.setTheme(ThemeMode.system);
-              },
-            ),
-            PopupMenuItem(child: Text("signout"),
-              onTap: ()async{
-                SharedPreferences sp=await SharedPreferences.getInstance();
-                sp.setBool('islogin',false);
-                await GoogleSignInApi.logout();
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Splashscreen()));;
               },
             ),
           ],

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:menu/Pages/Menu/menu.dart';
 import 'package:splashscreen/splashscreen.dart';
@@ -54,9 +55,12 @@ class _SplashscreenState extends State<Splashscreen> {
     return Scaffold(
       body: Center(
         child: Container(
+          height: double.infinity,
+          width: double.infinity,
           child: Image(
             //height: double.infinity,fit: BoxFit.fitHeight,
-            image: AssetImage("assets/splash.jpg"),),
+            image: AssetImage("assets/splash.jpg"),
+          fit: BoxFit.cover,),
         ),
       ),
     );

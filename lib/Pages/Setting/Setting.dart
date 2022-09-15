@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:menu/Applications/BottomNavBar/call.dart';
 import 'package:menu/Pages/Login/GoogleSignInApi.dart';
 import 'package:menu/Pages/Splash/SplashScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class SettingScreen extends StatefulWidget {
   final GoogleSignInAccount user;
@@ -14,10 +16,29 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   double PicRadius=80;
+  String image;
+  String name;
+  String email;
+  bool data=true;
 @override
   void initState(){
     // TODO: implement initState
     super.initState();
+    sp();
+  callme();
+  }
+  callme() async {
+    await Future.delayed(Duration(seconds: 2)).then((value) => {
+      setState(() {
+        data = false;
+      })
+    });
+  }
+  sp()async{
+    SharedPreferences sp=await SharedPreferences.getInstance() ;
+    image=sp.getString("image");
+    name=sp.getString("name");
+    email=sp.getString("email");
   }
 
 
@@ -49,7 +70,16 @@ class _SettingScreenState extends State<SettingScreen> {
         ],
         automaticallyImplyLeading: false,
       ),
-      body: Column(
+      body:data? Center(
+        child: new CircularPercentIndicator(
+          radius: 100.0,
+          lineWidth: 5.0,
+          percent: 1.0,
+          center: new Text("100%",style: TextStyle(color: Colors.white, fontSize: 30,)),
+          progressColor: Colors.white,
+        ),
+      ):
+      Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           InkWell(
@@ -59,20 +89,24 @@ class _SettingScreenState extends State<SettingScreen> {
               });
             },
             child:CircleAvatar(radius: PicRadius,
-              backgroundImage: //pic==null?
-               NetworkImage(widget.user.photoUrl),
+              backgroundImage:
+              NetworkImage(image.toString()),
+              //NetworkImage(widget.user.photoUrl),
               ),
           ),
           SizedBox(height: 10,
           ),
           Center(
             child:
-            Text("Name :"+widget.user.displayName,style: TextStyle(color: Colors.white, fontSize: 30,),),
+           // Text("Name :"+widget.user.displayName,style: TextStyle(color: Colors.white, fontSize: 30,),),
+            Text("Name :"+name.toString(),style: TextStyle(color: Colors.white, fontSize: 30,),),
           ),
           SizedBox(height: 10,
           ),
           Center(
-            child: Text("Email :"+widget.user.email,style: TextStyle(color: Colors.white, fontSize: 15,),),
+            child:
+            //Text("Email :"+widget.user.email,style: TextStyle(color: Colors.white, fontSize: 15,),),
+            Text("Email :"+email.toString(),style: TextStyle(color: Colors.white, fontSize: 15,),),
           ),
         ],
       ),

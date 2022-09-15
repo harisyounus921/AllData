@@ -38,6 +38,11 @@ dependencies:
   #animated_login: ^1.5.4
   google_sign_in: ^5.4.1
   shared_preferences: ^2.0.15
+  percent_indicator: ^4.0.1
+  modal_progress_hud_nsn: ^0.3.0
+  path_provider: ^2.0.2
+  sqflite: ^2.0.0+4
+
 
 dev_dependencies:
   flutter_test:
