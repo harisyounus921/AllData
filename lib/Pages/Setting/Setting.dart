@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:menu/Login/GoogleSignInApi.dart';
-import 'package:menu/Splash/SplashScreen.dart';
-import 'package:menu/menu.dart';
-import 'package:provider/provider.dart';
+import 'package:menu/Pages/Login/GoogleSignInApi.dart';
+import 'package:menu/Pages/Splash/SplashScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -16,6 +14,12 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   double PicRadius=80;
+@override
+  void initState(){
+    // TODO: implement initState
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +38,7 @@ class _SettingScreenState extends State<SettingScreen> {
           ],
         ),
         actions: [
-    IconButton(icon: Icon(Icons.account_circle),
+    IconButton(icon: Icon(Icons.logout),
     color: Colors.white,iconSize: 30, onPressed: ()async{
         //SharedPreferences.setMockInitialValues({});
         SharedPreferences sp=await SharedPreferences.getInstance();
@@ -54,24 +58,21 @@ class _SettingScreenState extends State<SettingScreen> {
                 PicRadius=150;
               });
             },
-            child: CircleAvatar(radius: PicRadius,
-              backgroundImage: NetworkImage(widget.user.photoUrl),),
+            child:CircleAvatar(radius: PicRadius,
+              backgroundImage: //pic==null?
+               NetworkImage(widget.user.photoUrl),
+              ),
           ),
           SizedBox(height: 10,
           ),
           Center(
-            child: Text("Name :"+widget.user.displayName,style: TextStyle(
-              color: Colors.white,
-              fontSize: 30,
-            ),),
+            child:
+            Text("Name :"+widget.user.displayName,style: TextStyle(color: Colors.white, fontSize: 30,),),
           ),
           SizedBox(height: 10,
           ),
           Center(
-            child: Text("Email :"+widget.user.email,style: TextStyle(
-              color: Colors.white,
-              fontSize: 15,
-            ),),
+            child: Text("Email :"+widget.user.email,style: TextStyle(color: Colors.white, fontSize: 15,),),
           ),
         ],
       ),

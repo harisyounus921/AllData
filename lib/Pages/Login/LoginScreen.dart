@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:menu/Login/GoogleSignInApi.dart';
-import 'package:menu/menu.dart';
+import 'package:menu/Pages/Login/GoogleSignInApi.dart';
+import 'package:menu/Pages/Menu/menu.dart';
 import 'package:path/path.dart' as Path;
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -30,7 +30,6 @@ class _LoginScreenState extends State<LoginScreen> {
             print('login Pass');
             // BuildContext context;
             Navigator.push(context, MaterialPageRoute(builder: (context)=>menus(user: currentuser,)));
-            // Navigator.push(context, MaterialPageRoute(builder: (context) => menus()));
           }
         },
         child: Padding(

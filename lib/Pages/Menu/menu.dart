@@ -1,24 +1,25 @@
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:menu/Login/GoogleSignInApi.dart';
-import 'package:menu/Login/LoginScreen.dart';
-import 'package:menu/MiCard.dart';
+import 'package:menu/Applications/Micard/MiCard.dart';
+import 'package:menu/Pages/Login/GoogleSignInApi.dart';
+import 'package:menu/Pages/Setting/Setting.dart';
+import 'package:menu/Pages/Splash/SplashScreen.dart';
 import 'package:menu/Provider/ThemeProvider.dart';
-import 'package:menu/Quizzler.dart';
-import 'package:menu/Setting/Setting.dart';
-import 'package:menu/bmi.dart';
-import 'package:menu/calculator.dart';
-import 'package:menu/drawers.dart';
-import 'package:menu/singlescroll.dart';
-import 'package:menu/todo.dart';
-import 'package:menu/whatsapppic.dart';
-import 'package:menu/formapp.dart';
-import 'package:menu/listviewbuilder.dart';
-import 'package:menu/stackuse.dart';
-import 'package:menu/xtra.dart';
-import 'package:menu/bottom.dart';
+import 'package:menu/Applications/Quizer/Quizzler.dart';
+import 'package:menu/Applications/BMI/bmi.dart';
+import 'package:menu/Applications/Calculator/calculator.dart';
+import 'package:menu/Applications/Drawer/drawers.dart';
+import 'package:menu/Applications/SingleScroolView/singlescroll.dart';
+import 'package:menu/Applications/TodoList/todo.dart';
+import 'package:menu/Applications/Whatsapp/whatsapppic.dart';
+import 'package:menu/Applications/DataEntry/formapp.dart';
+import 'package:menu/Applications/EcomeresApp/listviewbuilder.dart';
+import 'package:menu/Applications/StackBox/stackuse.dart';
+import 'package:menu/Applications/IncrementDecrement/xtra.dart';
+import 'package:menu/Applications/BottomNavBar/bottom.dart';
 import 'package:flutter/material.dart';
-import 'package:menu/api.dart';
+import 'package:menu/Applications/API_Sample/api.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class menus extends StatefulWidget {
   final GoogleSignInAccount user;
@@ -113,6 +114,14 @@ class _menusState extends State<menus> {
             PopupMenuItem(child: Text("System Theme"),
               onTap: (){
                 themechange.setTheme(ThemeMode.system);
+              },
+            ),
+            PopupMenuItem(child: Text("signout"),
+              onTap: ()async{
+                SharedPreferences sp=await SharedPreferences.getInstance();
+                sp.setBool('islogin',false);
+                await GoogleSignInApi.logout();
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Splashscreen()));;
               },
             ),
           ],

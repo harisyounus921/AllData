@@ -1,4 +1,4 @@
-import 'package:menu/bmiInput.dart';
+import 'package:menu/Applications/BMI/bmiInput.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 

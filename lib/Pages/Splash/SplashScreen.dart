@@ -1,9 +1,10 @@
-import 'package:menu/Login/LoginScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:menu/menu.dart';
+import 'package:menu/Pages/Menu/menu.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
+
+import '../Login/LoginScreen.dart';
 //import 'package:flutter/cupertino.dart';
 class Splash extends StatelessWidget {
   @override

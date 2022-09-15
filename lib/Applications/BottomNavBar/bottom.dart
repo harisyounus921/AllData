@@ -1,6 +1,6 @@
-import 'package:menu/call.dart';
-import 'package:menu/status.dart';
-import 'package:menu/whatsapp.dart';
+import 'package:menu/Applications/BottomNavBar/call.dart';
+import 'package:menu/Applications/BottomNavBar/status.dart';
+import 'package:menu/Applications/Whatsapp/whatsapp.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatefulWidget {

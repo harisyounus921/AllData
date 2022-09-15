@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:menu/Login/LoginScreen.dart';
-import 'package:menu/MiCard.dart';
+import 'package:menu/Applications/Micard/MiCard.dart';
+import 'package:menu/Pages/Splash/SplashScreen.dart';
 import 'package:menu/Provider/ThemeProvider.dart';
-import 'package:menu/Setting/Setting.dart';
-import 'package:menu/Splash/SplashScreen.dart';
-import 'package:menu/menu.dart';
+import 'package:menu/Pages/Menu/menu.dart';
 import 'package:provider/provider.dart';
 import 'package:splashscreen/splashscreen.dart';
 void main() {

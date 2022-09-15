@@ -1,7 +1,7 @@
-import 'package:menu/bmi.dart';
-import 'package:menu/bmiCalculation.dart';
+import 'package:menu/Applications/BMI/bmi.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:menu/Applications/BMI/bmiCalculation.dart';
 
 const activecolor = Color(0xFF1D1E33);
 const inactivecolor = Color(0xFF111328);
