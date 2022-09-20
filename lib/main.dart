@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:menu/Applications/Micard/MiCard.dart';
+import 'package:menu/Helper/scrollOfSetProvider.dart';
 import 'package:menu/Pages/Splash/SplashScreen.dart';
 import 'package:menu/Provider/ThemeProvider.dart';
 import 'package:menu/Pages/Menu/menu.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_)=>ThemeChangerProvider()),
+        ChangeNotifierProvider(create: (_)=>ScrollOfSetProvider()),
       ],
       child: Builder(builder: (BuildContext context){
         final themechange=Provider.of<ThemeChangerProvider>(context);
@@ -26,17 +28,18 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             brightness: Brightness.light,
             primarySwatch: Colors.indigo,
+              primaryColor: Colors.indigo
           ),
           darkTheme: ThemeData(
             brightness: Brightness.dark,
             primarySwatch: Colors.grey,
-            primaryColor: Colors.yellow,
+            primaryColor: Colors.grey,
             iconTheme: IconThemeData(
-              color: Colors.pink,
+              color: Colors.blue,
             ),
           ),
           home: Scaffold(
-            body: Splashscreen(),
+            body: menus(),
           ),
         );
       },)

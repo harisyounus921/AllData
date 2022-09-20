@@ -4,26 +4,7 @@ import 'package:menu/Pages/Menu/menu.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
-
 import '../Login/LoginScreen.dart';
-//import 'package:flutter/cupertino.dart';
-class Splash extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new SplashScreen(
-      seconds: 3,
-      navigateAfterSeconds: new LoginScreen(),
-      //title: new Text('Welcome To ALL IN 1',style: TextStyle(fontStyle: FontStyle.italic,color: Colors.white, ),),
-      //image: new Image.asset("assets/splash.jpg"),
-      imageBackground: AssetImage("assets/splash.jpg"),
-      //backgroundColor: Colors.black,
-      //styleTextUnderTheLoader: new TextStyle(),
-      //photoSize: 200.0,
-      loaderColor: Colors.white70,
-    );
-  }
-}
-
 
 class Splashscreen extends StatefulWidget {
   @override

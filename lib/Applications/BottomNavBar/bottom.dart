@@ -26,18 +26,12 @@ class _BottomNavigationState extends State<BottomNavigation> {
         child: Container(
           height: 60,
           child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-            MaterialButton(
-                //  minWidth: 60,
-                onPressed: () {
-                  setState(() {
-                    currentScreen = call();
-                    currentTab = 0;
-                  });
-                },
-                child: Icon(Icons.home,
-                    color: currentTab == 0 ? Colors.white : Colors.black)),
-            MaterialButton(
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    MaterialButton(
+                      onPressed: () {setState(() {currentScreen = call();currentTab = 0;});},
+                        child: Icon(Icons.home, color: currentTab == 0 ? Colors.white : Colors.black)),
+                    MaterialButton(
                 //  minWidth: 60,
                 onPressed: () {
                   setState(() {

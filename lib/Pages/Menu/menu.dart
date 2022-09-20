@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:menu/Applications/Micard/MiCard.dart';
+import 'package:menu/Helper/scrollOfSetProvider.dart';
 import 'package:menu/Pages/Login/GoogleSignInApi.dart';
 import 'package:menu/Pages/Setting/Setting.dart';
 import 'package:menu/Pages/Splash/SplashScreen.dart';
@@ -29,6 +31,93 @@ class menus extends StatefulWidget {
 }
 
 class _menusState extends State<menus> {
+
+
+  ScrollController _scrollController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _scrollController=ScrollController();
+    _scrollController?.addListener(() {
+      Provider.of<ScrollOfSetProvider>(context,listen: false).setOffset(_scrollController.offset);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final themechange=Provider.of<ThemeChangerProvider>(context);
+    return Consumer<ScrollOfSetProvider>(
+      builder: (context,ScrollOfSetProvider,child){
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.indigo.withOpacity((ScrollOfSetProvider.scrollofset/25).clamp(0.79,1).toDouble()),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Hero(
+                  tag: "loginToMenu",
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage('assets/splash.jpg',),
+                    radius: 23,
+                  ),
+                ),
+                Container(
+                    padding: const EdgeInsets.all(8.0), child: Text('All in One',style: TextStyle(
+                  color: Colors.blue,
+                ),))
+              ],
+            ),
+            automaticallyImplyLeading: false,
+            // centerTitle: true,
+            actions: [
+              IconButton(icon: Icon(Icons.account_circle),
+                  color: Colors.blue,
+                  iconSize: 30, onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SettingScreen(user:widget.user)));}),
+
+        Theme(
+        data: Theme.of(context).copyWith(
+          backgroundColor: Colors.blue,
+          // cardColor: Colors.blue,
+        ),
+        child:PopupMenuButton(itemBuilder: (context)=>[
+                PopupMenuItem(
+                  child: Text("Light Theme"),
+                  onTap: (){
+                    themechange.setTheme(ThemeMode.light);
+                  },
+                ),
+                PopupMenuItem(child: Text("Dark Theme"),
+                  onTap: (){
+                    themechange.setTheme(ThemeMode.dark);
+                  },
+                ),
+              ],
+              ),
+        ),
+            ],
+          ),
+          body: CustomScrollView(
+            controller: _scrollController,
+            slivers: [
+              SliverToBoxAdapter(
+                  child: Column(
+                    children: [
+                      BodyPart(),
+                    ],
+                  )),
+            ],
+          ),
+        );
+      }
+    );
+  }
+}
+
+class BodyPart extends StatelessWidget {
+
   var word = [
     "BMI CALCULATOR",
     "MiCard",
@@ -77,66 +166,31 @@ class _menusState extends State<menus> {
     drawers(),
     Stackuse(),
   ];
+
   @override
   Widget build(BuildContext context) {
-    final themechange=Provider.of<ThemeChangerProvider>(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Hero(
-              tag: "loginToMenu",
-              child: CircleAvatar(
-                backgroundImage:  AssetImage('assets/splash.jpg',),
-                radius: 23,
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      child: ListView.builder(
+          itemCount: word.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: CircleAvatar(
+                backgroundImage: AssetImage(pic[index]),
+                radius: 30,
               ),
-            ),
-            Container(
-                padding: const EdgeInsets.all(8.0), child: Text('All in One'))
-          ],
-        ),
-        automaticallyImplyLeading: false,
-       // centerTitle: true,
-        actions: [
-          IconButton(icon: Icon(Icons.account_circle),
-              color: Colors.white,iconSize: 30, onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>SettingScreen(user:widget.user)));}),
-          PopupMenuButton(itemBuilder: (context)=>[
-            PopupMenuItem(
-              child: Text("Light Theme"),
-              onTap: (){
-                themechange.setTheme(ThemeMode.light);
-              },
-            ),
-            PopupMenuItem(child: Text("Dark Theme"),
-              onTap: (){
-                themechange.setTheme(ThemeMode.dark);
-              },
-            ),
-          ],
-    ),
-        ],
-      ),
-        body: ListView.builder(
-            itemCount: word.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: AssetImage(pic[index]),
-                  radius: 30,
-                ),
-                title: Text(word[index]),
-                subtitle: Text(word[index]),
-                trailing: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => list[index]));},
-                        child: Text("OPEN IT"))
-                  ],
-                ),
-              );
-            }));
+              title: Text(word[index]),
+              subtitle: Text(word[index]),
+              trailing: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ElevatedButton(
+                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => list[index]));},
+                      child: Text("OPEN IT"))
+                ],
+              ),
+            );
+          }),
+    );
   }
 }
