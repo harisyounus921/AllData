@@ -60,7 +60,9 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
         actions: [
     IconButton(icon: Icon(Icons.logout),
-    color: Colors.white,iconSize: 30, onPressed: ()async{
+    color: Colors.white,
+      iconSize: 30,
+      onPressed: ()async{
         //SharedPreferences.setMockInitialValues({});
         SharedPreferences sp=await SharedPreferences.getInstance();
         sp.setBool('islogin',false);

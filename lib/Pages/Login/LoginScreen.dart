@@ -6,6 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../Helper/DBHelper.dart';
 
 class LoginScreen extends StatefulWidget {
+  static var id;
+
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -163,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     print('login Pass');
                     showSpinner=false;
                     // BuildContext context;
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>menus(user: currentuser,)));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>menus()));
                   }
                 },
                 child: Padding(

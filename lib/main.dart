@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:menu/Applications/Micard/MiCard.dart';
@@ -7,8 +8,10 @@ import 'package:menu/Provider/ThemeProvider.dart';
 import 'package:menu/Pages/Menu/menu.dart';
 import 'package:provider/provider.dart';
 import 'package:splashscreen/splashscreen.dart';
-void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
+
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -39,7 +42,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           home: Scaffold(
-            body: menus(),
+            body: Splashscreen(),
           ),
         );
       },)

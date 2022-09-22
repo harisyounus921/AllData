@@ -7,6 +7,8 @@ import 'dart:async';
 import '../Login/LoginScreen.dart';
 
 class Splashscreen extends StatefulWidget {
+  static var id;
+
   @override
   _SplashscreenState createState() => _SplashscreenState();
 }
