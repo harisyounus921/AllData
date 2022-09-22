@@ -51,7 +51,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
             currentAccountPicture://ImageBuilderWidget(image:image.toString()),
             CircleAvatar(
               radius: 100.0,
-              backgroundImage: data?AssetImage("assets/man.png"):NetworkImage(image.toString()),
+              backgroundImage: data?AssetImage("assets/man.png"):
+              //ImageBuilderWidget(image:image.toString()),
+              NetworkImage(image.toString()),
               // backgroundImage: AssetImage('assets/vision.jpg'),
             ),
           ),

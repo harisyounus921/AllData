@@ -62,10 +62,19 @@ class _menusState extends State<menus> {
                 SliverToBoxAdapter(
                   child: FittedBox(child: Padding(
                     padding: const EdgeInsets.only(left: 3,right: 3),
-                    child: Text("Swap Left to Open the Applications",style: TextStyle(
-                        color: Colors.white,backgroundColor: Colors.indigo,fontStyle: FontStyle.italic),),
+                    child: RichText(
+                    text: TextSpan(style: TextStyle(fontSize: 20,color: Colors.black,backgroundColor: Colors.deepPurple),
+                      children: const <TextSpan>[
+                        TextSpan(text: 'Swap'),
+                        TextSpan(text: ' Left ', style: TextStyle(fontWeight: FontWeight.bold)),
+                        TextSpan(text: 'to Open the'),
+                        TextSpan(text: ' Applications', style: TextStyle(fontWeight: FontWeight.bold)),
+                      ],
+                    ),
+                    ),
+                    ),
                   ),
-                  ),),
+                  ),
                 SliverToBoxAdapter(
                     child: BodyPart()),
               ],

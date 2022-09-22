@@ -102,7 +102,7 @@ class BodyPart extends StatelessWidget {
                               onPressed: (context){
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(content: Text('Sorry this functionality is under development'),
-                                      backgroundColor:Colors.deepPurple ,));
+                                      backgroundColor:Colors.blue ,));
                               }
                           ),
                         ],
@@ -138,26 +138,10 @@ class BodyPart extends StatelessWidget {
 
 
 class CustomSlider extends StatelessWidget {
-  /*var pic = [
-    "assets/bmi.png",
-    "assets/MiCard.png",
-    "assets/ecomapp.png",
-    "assets/todo.png",
-    "assets/calculator.png",
-    "assets/scroll.png",
-    "assets/quizzer.png",
-    "assets/whatsapp.png",
-    "assets/api.png",
-    "assets/form.png",
-    "assets/increment.png",
-    "assets/navbar.png",
-    "assets/drawer.png",
-    "assets/box.png",
-  ];*/
   var pic = [
-    "assets/bmis.png",
     "assets/ecomapp1.png",
     "assets/todo1.png",
+    "assets/bmis.png",
     "assets/calculator.png",
   ];
   @override
