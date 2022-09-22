@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:menu/Applications/Micard/MiCard.dart';
 import 'package:menu/Applications/Quizer/Quizzler.dart';
 import 'package:menu/Applications/BMI/bmi.dart';
@@ -14,7 +15,6 @@ import 'package:menu/Applications/IncrementDecrement/xtra.dart';
 import 'package:menu/Applications/BottomNavBar/bottom.dart';
 import 'package:flutter/material.dart';
 import 'package:menu/Applications/API_Sample/api.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 
 class BodyPart extends StatelessWidget {
 
@@ -138,8 +138,24 @@ class BodyPart extends StatelessWidget {
 
 
 class CustomSlider extends StatelessWidget {
+  /*var pic = [
+    "assets/bmi.png",
+    "assets/MiCard.png",
+    "assets/ecomapp.png",
+    "assets/todo.png",
+    "assets/calculator.png",
+    "assets/scroll.png",
+    "assets/quizzer.png",
+    "assets/whatsapp.png",
+    "assets/api.png",
+    "assets/form.png",
+    "assets/increment.png",
+    "assets/navbar.png",
+    "assets/drawer.png",
+    "assets/box.png",
+  ];*/
   var pic = [
-    "assets/bmi1.png",
+    "assets/bmis.png",
     "assets/ecomapp1.png",
     "assets/todo1.png",
     "assets/calculator.png",

@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:menu/Helper/scrollOfSetProvider.dart';
 import 'package:menu/Pages/Menu/Body&Slider.dart';
 import 'package:menu/Pages/Menu/CustomDrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../Provider/ScrollOfSetProvider.dart';
 
 class menus extends StatefulWidget {
   @override
@@ -28,16 +29,16 @@ class _menusState extends State<menus> {
   @override
   Widget build(BuildContext context) {
     return Consumer<ScrollOfSetProvider>(
-      builder: (context,ScrollOfSetProvider,child){
-        return Scaffold(
-          //extendBodyBehindAppBar: true,
-          drawer: CustomDrawer(),
-          appBar: AppBar(
-              centerTitle: true,
-            title: Text("All In One"),
+        builder: (context,ScrollOfSetProvider,child){
+          return Scaffold(
+            //extendBodyBehindAppBar: true,
+            drawer: CustomDrawer(),
+            appBar: AppBar(
+                centerTitle: true,
+                title: Text("All In One"),
 
-            backgroundColor: Colors.transparent//indigo.withOpacity((ScrollOfSetProvider.scrollofset/350).clamp(0,1).toDouble()),
-          /*  automaticallyImplyLeading: false,
+                backgroundColor: Colors.transparent//indigo.withOpacity((ScrollOfSetProvider.scrollofset/350).clamp(0,1).toDouble()),
+              /*  automaticallyImplyLeading: false,
             actions: [
               IconButton(icon: Icon(Icons.account_circle),
                   color: Colors.blue,
@@ -49,28 +50,28 @@ class _menusState extends State<menus> {
                 PopupMenuItem(child: Text("Dark Theme"), onTap: (){themechange.setTheme(ThemeMode.dark);},),
               ],),
              ],*/
-          ),
-          body:CustomScrollView(
-            controller: _scrollController,
-            slivers: [
-              SliverToBoxAdapter(
-                child: CustomSlider(),),
-              SliverToBoxAdapter(
-                child:SizedBox(height: 10,),  //CustomSeeMore(),
-              ),
-              SliverToBoxAdapter(
-                child: FittedBox(child: Padding(
+            ),
+            body:CustomScrollView(
+              controller: _scrollController,
+              slivers: [
+                SliverToBoxAdapter(
+                  child: CustomSlider(),),
+                SliverToBoxAdapter(
+                  child:SizedBox(height: 10,),  //CustomSeeMore(),
+                ),
+                SliverToBoxAdapter(
+                  child: FittedBox(child: Padding(
                     padding: const EdgeInsets.only(left: 3,right: 3),
                     child: Text("Swap Left to Open the Applications",style: TextStyle(
                         color: Colors.white,backgroundColor: Colors.indigo,fontStyle: FontStyle.italic),),
                   ),
-                ),),
-              SliverToBoxAdapter(
-                  child: BodyPart()),
-            ],
-          ),
-        );
-      }
+                  ),),
+                SliverToBoxAdapter(
+                    child: BodyPart()),
+              ],
+            ),
+          );
+        }
     );
   }
 }

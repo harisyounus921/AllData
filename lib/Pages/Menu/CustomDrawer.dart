@@ -59,11 +59,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
           Consumer<ThemeChangerProvider>(
             builder: (context,ThemeChangerProvider,child) {
               return ListTile(
-                onTap: () {
-                  ThemeChangerProvider.setTheme(ThemeMode.light);
-                },
-                title:Text("Light Theme"),
-                leading: Icon(Icons.light_mode)
+                  onTap: () {
+                    ThemeChangerProvider.setTheme(ThemeMode.light);
+                  },
+                  title:Text("Light Theme"),
+                  leading: Icon(Icons.light_mode)
               );
             },
           ),
@@ -73,7 +73,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 onTap: () {
                   ThemeChangerProvider.setTheme(ThemeMode.dark);
                 },
-                  leading: Icon(Icons.dark_mode),
+                leading: Icon(Icons.dark_mode),
                 title:Text("Dark Theme"),
               );
             },

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:menu/Applications/Micard/MiCard.dart';
 import 'package:menu/Helper/scrollOfSetProvider.dart';
 import 'package:menu/Pages/Splash/SplashScreen.dart';
+import 'package:menu/Provider/ScrollOfSetProvider.dart';
 import 'package:menu/Provider/ThemeProvider.dart';
 import 'package:menu/Pages/Menu/menu.dart';
 import 'package:provider/provider.dart';
