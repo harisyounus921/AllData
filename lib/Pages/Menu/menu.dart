@@ -36,7 +36,6 @@ class _menusState extends State<menus> {
             appBar: AppBar(
                 centerTitle: true,
                 title: Text("All In One"),
-
                 backgroundColor: Colors.transparent//indigo.withOpacity((ScrollOfSetProvider.scrollofset/350).clamp(0,1).toDouble()),
               /*  automaticallyImplyLeading: false,
             actions: [
