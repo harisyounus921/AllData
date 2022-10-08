@@ -6,6 +6,7 @@ import 'package:menu/Applications/BMI/bmi.dart';
 import 'package:menu/Applications/Calculator/calculator.dart';
 import 'package:menu/Applications/Drawer/drawers.dart';
 import 'package:menu/Applications/SingleScroolView/singlescroll.dart';
+import 'package:menu/Applications/TicketApp/TicketApp.dart';
 import 'package:menu/Applications/TodoList/todo.dart';
 import 'package:menu/Applications/Whatsapp/whatsapppic.dart';
 import 'package:menu/Applications/DataEntry/formapp.dart';
@@ -19,6 +20,7 @@ import 'package:menu/Applications/API_Sample/api.dart';
 class BodyPart extends StatelessWidget {
 
   var word = [
+    "Ticket Selector",
     "BMI CALCULATOR",
     "MiCard",
     "Ecom App UI",
@@ -35,6 +37,7 @@ class BodyPart extends StatelessWidget {
     "Stack Use(BOX)",
   ];
   var pic = [
+    "assets/increment.png",
     "assets/bmi.png",
     "assets/MiCard.png",
     "assets/ecomapp.png",
@@ -51,6 +54,7 @@ class BodyPart extends StatelessWidget {
     "assets/box.png",
   ];
   List list = [
+    TicketApp(),
     BMICalculator(),
     MiCard(),
     haris(),

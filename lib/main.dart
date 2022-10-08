@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:menu/Pages/Splash/SplashScreen.dart';
 import 'package:menu/Provider/ScrollOfSetProvider.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +8,13 @@ import 'package:provider/provider.dart';
 import 'Provider/ThemeProvider.dart';
 //import 'package:menu/Provider/scrollOfSetProvider.dart';
 
-void main()async {
+void main(){
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.red,
+      systemNavigationBarColor:  Colors.transparent,
+    ),
+  );
   runApp(MyApp());
 }
 

@@ -43,6 +43,7 @@ dependencies:
   path_provider: ^2.0.2
   sqflite: ^2.0.0+4
   flutter_slidable: ^2.0.0
+  ticket_widget: ^0.0.1
 
 dev_dependencies:
   flutter_test:
@@ -65,7 +66,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
 
   assets:
-   - assets/
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
