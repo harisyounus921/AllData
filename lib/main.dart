@@ -5,6 +5,9 @@ import 'package:menu/Pages/Splash/SplashScreen.dart';
 import 'package:menu/Provider/ScrollOfSetProvider.dart';
 import 'package:provider/provider.dart';
 
+import 'Applications/TicketApp/TicketApp.dart';
+import 'Applications/TicketApp/TicketInputData.dart';
+import 'Pages/Menu/menu.dart';
 import 'Provider/ThemeProvider.dart';
 //import 'package:menu/Provider/scrollOfSetProvider.dart';
 

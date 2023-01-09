@@ -17,6 +17,8 @@ import 'package:menu/Applications/BottomNavBar/bottom.dart';
 import 'package:flutter/material.dart';
 import 'package:menu/Applications/API_Sample/api.dart';
 
+import '../../Applications/TicketApp/TicketInputData.dart';
+
 class BodyPart extends StatelessWidget {
 
   var word = [
@@ -37,7 +39,7 @@ class BodyPart extends StatelessWidget {
     "Stack Use(BOX)",
   ];
   var pic = [
-    "assets/increment.png",
+    "assets/ticket.png",
     "assets/bmi.png",
     "assets/MiCard.png",
     "assets/ecomapp.png",
@@ -54,7 +56,7 @@ class BodyPart extends StatelessWidget {
     "assets/box.png",
   ];
   List list = [
-    TicketApp(),
+    TicketInputData(),
     BMICalculator(),
     MiCard(),
     haris(),
@@ -83,6 +85,7 @@ class BodyPart extends StatelessWidget {
             child: SlidableAutoCloseBehavior(
               closeWhenOpened: true,
               child: ListView.builder(
+                //physics: NeverScrollableScrollPhysics(),
                   itemCount: pic.length,
                   itemBuilder: (context, index) {
                     return Slidable(
@@ -143,6 +146,7 @@ class BodyPart extends StatelessWidget {
 
 class CustomSlider extends StatelessWidget {
   var pic = [
+    "assets/ticket1.png",
     "assets/ecomapp1.png",
     "assets/todo1.png",
     "assets/bmis.png",

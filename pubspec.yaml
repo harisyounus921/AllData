@@ -44,6 +44,8 @@ dependencies:
   sqflite: ^2.0.0+4
   flutter_slidable: ^2.0.0
   ticket_widget: ^0.0.1
+  scroll_date_picker: ^3.6.0
+  fluttertoast: ^8.0.9
 
 dev_dependencies:
   flutter_test:
