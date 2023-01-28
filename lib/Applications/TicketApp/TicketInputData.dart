@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:menu/Applications/TicketApp/TicketApp.dart';
-import 'package:scroll_date_picker/scroll_date_picker.dart';
-import '../../Pages/Menu/menu.dart';
 
 class TicketInputData extends StatefulWidget {
   @override
@@ -100,7 +98,6 @@ class _TicketInputDataState extends State<TicketInputData> {
                 children: [
                   DropdownButton(
                     value: Sourcedropdownvalue,
-                    // Down Arrow Icon
                     icon: const Icon(Icons.keyboard_arrow_down),
                     items: items.map((String items) {
                       return DropdownMenuItem(
@@ -151,7 +148,6 @@ class _TicketInputDataState extends State<TicketInputData> {
               SizedBox(height: 10,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                //crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   ElevatedButton(
                     child:  Text('${date.day}/${date.month}/${date.year}',
@@ -187,19 +183,6 @@ class _TicketInputDataState extends State<TicketInputData> {
                   ),
                 ],
               ),
-          /*SizedBox(
-            height: 250,
-            child: ScrollDatePicker(
-              selectedDate: date,
-              locale: Locale('en'),
-              onDateTimeChanged: (DateTime value) {
-                setState(() {
-                  date = value;
-                });
-              },
-            ),
-          ),*/
-
               SizedBox(height: 30,),
               Text("Select your Time of Flight"),
               SizedBox(height: 10,),

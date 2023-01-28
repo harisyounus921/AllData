@@ -9,12 +9,6 @@ class googleInfo{
      this.image
   });
 
-  /*Cart.fromMap(Map<dynamic,dynamic>res,
-      this.productId,
-      this.Name,
-      this.image)
-  :id=res['id'];*/
-
   googleInfo.fromMap(Map<dynamic , dynamic>  res)
       : email = res["email"],
         name = res["Name"],

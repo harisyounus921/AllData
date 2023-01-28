@@ -6,7 +6,6 @@ import 'package:menu/Applications/BMI/bmi.dart';
 import 'package:menu/Applications/Calculator/calculator.dart';
 import 'package:menu/Applications/Drawer/drawers.dart';
 import 'package:menu/Applications/SingleScroolView/singlescroll.dart';
-import 'package:menu/Applications/TicketApp/TicketApp.dart';
 import 'package:menu/Applications/TodoList/todo.dart';
 import 'package:menu/Applications/Whatsapp/whatsapppic.dart';
 import 'package:menu/Applications/DataEntry/formapp.dart';
@@ -67,7 +66,7 @@ class BodyPart extends StatelessWidget {
     flud(),
     api(),
     Formapp(),
-    xtra(),
+    incrementDecrement(),
     BottomNavigation(),
     drawers(),
     Stackuse(),

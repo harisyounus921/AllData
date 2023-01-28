@@ -41,7 +41,6 @@ class _TicketAppState extends State<TicketApp> {
                     date: widget.date,sourcevalue: widget.sourcevalue,destinationvalue: widget.destinationvalue,),
                 ),
               ),
-              //Center(child: Text("sellest")),
             ),
             Transform.rotate(angle: pi,
               child: ClipPath(
@@ -49,7 +48,6 @@ class _TicketAppState extends State<TicketApp> {
                 child: Container(height: MediaQuery.of(context).size.height/5, color: Colors.white,),
             ),
               ),
-
           ],
         ),
       ),

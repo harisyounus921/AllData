@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../Provider/ThemeProvider.dart';
 import '../Login/GoogleSignInApi.dart';
 import '../Splash/SplashScreen.dart';
@@ -52,9 +50,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             CircleAvatar(
               radius: 100.0,
               backgroundImage: data?AssetImage("assets/man.png"):
-              //ImageBuilderWidget(image:image.toString()),
               NetworkImage(image.toString()),
-              // backgroundImage: AssetImage('assets/vision.jpg'),
             ),
           ),
           Spacer(),
@@ -83,7 +79,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
           Spacer(),
           ListTile(
             onTap: ()async{
-              //SharedPreferences.setMockInitialValues({});
               SharedPreferences sp=await SharedPreferences.getInstance();
               sp.setBool('islogin',false);
               await GoogleSignInApi.logout();

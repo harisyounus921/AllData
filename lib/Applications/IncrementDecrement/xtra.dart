@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class xtra extends StatefulWidget {
+class incrementDecrement extends StatefulWidget {
   @override
-  _xtraState createState() => _xtraState();
+  _incrementDecrementState createState() => _incrementDecrementState();
 }
 
-class _xtraState extends State<xtra> {
+class _incrementDecrementState extends State<incrementDecrement> {
   var text = 1;
 
   one() {

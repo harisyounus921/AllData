@@ -98,7 +98,7 @@ class _menusState extends State<menus> {
     flud(),
     api(),
     Formapp(),
-    xtra(),
+    incrementDecrement(),
     BottomNavigation(),
     drawers(),
     Stackuse(),
@@ -230,34 +230,6 @@ class _menusState extends State<menus> {
                 ],
               ),
             )
-            /*CustomScrollView(
-              controller: _scrollController,
-              slivers: [
-                SliverToBoxAdapter(
-                  child: CustomSlider(),),
-                SliverToBoxAdapter(
-                  child:SizedBox(height: 10,),  //CustomSeeMore(),
-                ),
-                SliverToBoxAdapter(
-                  child: FittedBox(child: Padding(
-                    padding: const EdgeInsets.only(left: 3,right: 3),
-                    child: RichText(
-                    text: TextSpan(style: TextStyle(fontSize: 20,color: Colors.black,backgroundColor: Colors.deepPurple),
-                      children: const <TextSpan>[
-                        TextSpan(text: 'Swap'),
-                        TextSpan(text: ' Left ', style: TextStyle(fontWeight: FontWeight.bold)),
-                        TextSpan(text: 'to Open the'),
-                        TextSpan(text: ' Applications', style: TextStyle(fontWeight: FontWeight.bold)),
-                      ],
-                    ),
-                    ),
-                    ),
-                  ),
-                  ),
-                SliverToBoxAdapter(
-                    child: BodyPart()),
-              ],
-            ),*/
           );
         }
     );

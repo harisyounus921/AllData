@@ -20,7 +20,6 @@ class _SplashscreenState extends State<Splashscreen> {
     login();
   }
   void login()async{
-    //SharedPreferences.setMockInitialValues({});
     SharedPreferences sp = await SharedPreferences.getInstance();
     bool islogin= sp.getBool("islogin")??false;
     if(islogin){
@@ -36,14 +35,15 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
         child: Container(
           height: double.infinity,
           width: double.infinity,
           child: Image(
             //height: double.infinity,fit: BoxFit.fitHeight,
-            image: AssetImage("assets/splash.jpg"),
-          fit: BoxFit.cover,),
+            image: AssetImage("assets/splash.png"),
+          fit: BoxFit.fitWidth,),
         ),
       ),
     );

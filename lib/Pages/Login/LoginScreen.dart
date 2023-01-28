@@ -1,11 +1,9 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:menu/Pages/Login/GoogleSignInApi.dart';
 import 'package:menu/Pages/Menu/menu.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../Helper/DBHelper.dart';
 
 class LoginScreen extends StatefulWidget {
   static var id;
@@ -17,7 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo,
+      backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
@@ -31,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Container(
                         height: MediaQuery.of(context).size.width/3 ,
                         width:MediaQuery.of(context).size.width/3 ,
-                        color: Colors.black38,),
+                        color: Colors.white70,),
                     ),
                   ),
                   SizedBox(width: MediaQuery.of(context).size.width/3,),
@@ -42,13 +40,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Container(
                         height: MediaQuery.of(context).size.width/3 ,
                         width:MediaQuery.of(context).size.width/3 ,
-                        color: Colors.black38,),
+                        color: Colors.white70,),
                     ),
                   ),
                 ],
               ),
               Container(
-                height: MediaQuery.of(context).size.height/1.5377,
+                height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24.0),
@@ -56,20 +54,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Flexible(
-                        child: Hero(
-                            tag: "loginToMenu",
-                            child:Container(
-                              padding: EdgeInsets.all(8),
-                              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(100)),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(100),
-                                child: SizedBox.fromSize(
-                                  size: Size.fromRadius(100),
-                                  child: Image.asset('assets/splash.jpg',fit: BoxFit.cover),
-                                ),
-                              ),
-                            )
+                      Container(
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(100)),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: SizedBox.fromSize(
+                            size: Size.fromRadius(80),
+                            child: Image.asset('assets/splash.png',fit: BoxFit.fill),
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -150,19 +143,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: 24.0,
                       ),
-                      GestureDetector(
-                        onTap: (){},
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 18.0,right: 18),
-                          child: Container(
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFE6E7E9),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Center(child: Text("Login")),
+                      ElevatedButton.icon(
+                        icon: FaIcon(FontAwesomeIcons.message,color: Colors.red,),
+                        label: Text('  Login with email'),
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
                           ),
+                          primary: Colors.white,
+                          onPrimary: Colors.black,
+                          minimumSize: Size(double.infinity,50),
                         ),
+                        onPressed: (){},
                       ),
                       SizedBox(height: 25,),
                       const Divider(
@@ -173,39 +165,32 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Color(0xFFE6E7E9),
                       ),
                       SizedBox(height: 25,),
-                      Center(child:GestureDetector(
-                        onTap: ()async{
+                      ElevatedButton.icon(
+                        icon: FaIcon(FontAwesomeIcons.google,color: Colors.red,),
+                        label: Text('  Singn Up with Google'),
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          primary: Colors.white,
+                          onPrimary: Colors.black,
+                          minimumSize: Size(double.infinity,50),
+                        ),
+                        onPressed: ()async{
                           final currentuser=await GoogleSignInApi.login();
                           if(currentuser==null){
                             print('login failed');
-                            //BuildContext context;
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("SignIn Fail")));
                           }else{
-                            //SharedPreferences.setMockInitialValues({});
                             SharedPreferences sp=await SharedPreferences.getInstance();
                             sp.setBool('islogin',true);
                             sp.setString('image', currentuser.photoUrl);
                             sp.setString('name', currentuser.displayName);
                             sp.setString('email', currentuser.email);
-                            /*dbHelper.insert(googleInfo(email: currentuser.email.toString(), name: currentuser.displayName.toString(),
-                    image: currentuser.photoUrl.toString()));*/
                             print('login Pass');
-                            // BuildContext context;
                             Navigator.push(context, MaterialPageRoute(builder: (context)=>menus()));
                           }
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 18.0,right: 18),
-                          child: Container(
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: Color(0xff1aa260),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Center(child: Text("Login with Google")),
-                          ),
-                        ),
-                      ),
                       ),
                     ],
                   ),
@@ -219,7 +204,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       clipper: LeftClipClipper(),
                       child: Container(height:MediaQuery.of(context).size.width/3,
                         width:MediaQuery.of(context).size.width/3 ,
-                        color: Colors.black38,),
+                        color: Colors.white70,),
                     ),
                   ),
                   SizedBox(width: MediaQuery.of(context).size.width/3,),
@@ -230,7 +215,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Container(
                         height: MediaQuery.of(context).size.width/3 ,
                         width:MediaQuery.of(context).size.width/3 ,
-                        color: Colors.black38,),
+                        color: Colors.white70,),
                     ),
                   ),
                 ],
@@ -246,12 +231,9 @@ class LeftClipClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path();
-
     path.lineTo(0, size.height);
     path.lineTo(size.width, size.height);
     path.quadraticBezierTo(0, size.height, 0, 0);
-    //path.lineTo(size.width, 0);
-
     return path;
   }
   @override
