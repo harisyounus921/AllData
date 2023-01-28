@@ -15,7 +15,6 @@ class _fludState extends State<flud> {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-            // title:Center(child: Text("Whatsapp")),
             bottom: TabBar(
                 unselectedLabelColor: Colors.green[50],
                 labelColor: Colors.purple[50],

@@ -3,6 +3,14 @@ import 'package:ticket_widget/ticket_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class TicketApp extends StatefulWidget {
+
+  TicketApp({@required this.name,@required this.time,
+    @required this.date,@required this.sourcevalue,@required this.destinationvalue,@required this.Classvalue});
+
+  DateTime date;
+  TimeOfDay time;
+  String name,sourcevalue,destinationvalue,Classvalue;
+
   @override
   _TicketAppState createState() => _TicketAppState();
 }
@@ -29,10 +37,10 @@ class _TicketAppState extends State<TicketApp> {
                   height: 500,
                   isCornerRounded: true,
                   padding: EdgeInsets.all(20),
-                  child: TicketData(),
+                  child: TicketData(name: widget.name,time: widget.time,Classvalue: widget.Classvalue,
+                    date: widget.date,sourcevalue: widget.sourcevalue,destinationvalue: widget.destinationvalue,),
                 ),
               ),
-              //Center(child: Text("sellest")),
             ),
             Transform.rotate(angle: pi,
               child: ClipPath(
@@ -40,7 +48,6 @@ class _TicketAppState extends State<TicketApp> {
                 child: Container(height: MediaQuery.of(context).size.height/5, color: Colors.white,),
             ),
               ),
-
           ],
         ),
       ),
@@ -84,7 +91,17 @@ class LeftClipClipper extends CustomClipper<Path> {
 }
 
 
-class TicketData extends StatelessWidget {
+class TicketData extends StatefulWidget {
+  TicketData({@required this.name,@required this.date,@required this.time,
+    @required this.sourcevalue,@required this.destinationvalue,@required this.Classvalue});
+  DateTime date;
+  TimeOfDay time;
+  String name,sourcevalue,destinationvalue,Classvalue;
+  @override
+  State<TicketData> createState() => _TicketDataState();
+}
+
+class _TicketDataState extends State<TicketData> {
    @override
   Widget build(BuildContext context) {
     return Column(
@@ -100,16 +117,16 @@ class TicketData extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30.0),
                 border: Border.all(width: 1.0, color: Colors.green),
               ),
-              child: const Center(
+              child: Center(
                 child: Text(
-                  '    Business Class',
+                  '${widget.Classvalue}    Class',
                   style: TextStyle(color: Colors.green),
                 ),
               ),
             ),
             Row(
-              children: const [
-                Text('LHR', style: TextStyle(
+              children: [
+                Text(widget.sourcevalue, style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
                 Padding(
@@ -139,14 +156,14 @@ class TicketData extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ticketDetailsWidget(
-                  'Passengers', 'Muhammad Haris', 'Date', '05-10-2022'),
+                  'Passengers', widget.name, 'Date', widget.date.day.toString()+"-"+widget.date.month.toString()+"-"+widget.date.year.toString()),
               Padding(
                 padding: const EdgeInsets.only(top: 12.0, right: 52.0),
                 child: ticketDetailsWidget('Flight', '76836A45', 'Gate', '66B'),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 12.0, right: 53.0),
-                child: ticketDetailsWidget('Class', 'Business', 'Seat', '21B'),
+                child: ticketDetailsWidget('Class', widget.Classvalue, 'Seat', '21B'),
               ),
             ],
           ),

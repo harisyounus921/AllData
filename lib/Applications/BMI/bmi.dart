@@ -2,8 +2,6 @@ import 'package:menu/Applications/BMI/bmiInput.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-void main() => runApp(BMICalculator());
-
 class BMICalculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

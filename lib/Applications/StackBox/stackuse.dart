@@ -11,8 +11,6 @@ class _StackuseState extends State<Stackuse> {
     return Scaffold(
       body: Stack(
         children: [
-          //Container(color : Colors.red, height: 100, width :100),
-
           Positioned(
             top: 10,
             left: 10,

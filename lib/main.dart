@@ -4,9 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:menu/Pages/Splash/SplashScreen.dart';
 import 'package:menu/Provider/ScrollOfSetProvider.dart';
 import 'package:provider/provider.dart';
-
 import 'Provider/ThemeProvider.dart';
-//import 'package:menu/Provider/scrollOfSetProvider.dart';
 
 void main(){
   SystemChrome.setSystemUIOverlayStyle(
@@ -32,6 +30,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           themeMode: themechange.themeMode,
           theme: ThemeData(
+            useMaterial3: true,
             brightness: Brightness.light,
             primarySwatch: Colors.indigo,
               primaryColor: Colors.indigo
